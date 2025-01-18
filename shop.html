@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+</head>
+<style>
+    
+    .container {
+        max-width: 1200px;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    /* Sidebar styles */
+    .sidebar {
+        width: 30%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 10px;
+        height: min-content;
+    }
+    
+    .sidebar h2, .sidebar h3 {
+        margin-bottom: 15px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    
+    .sidebar ul {
+        list-style-type: none;
+        margin-bottom: 30px;
+    }
+    
+    .sidebar li {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        margin-left: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .select-by-cat {
+        margin-top: 40px;
+    }
+    
+    .price-filter {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    
+    .filter-btn:hover {
+        background-color: #444;
+    }
+
+    .price0-500 {
+        font-size: 1.2rem;
+        margin-top: 5px;
+    }
+    
+    /* Shop section styles */
+    .shop {
+        width: 75%;
+    }
+    
+    .shop-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    
+    .shop-header .view-options {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .shop-header .view-options i {
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+    
+    .shop-header .sort select {
+        padding: 5px;
+    }
+    
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .product-card {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        position: relative;
+        box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    
+    .product-card h3 {
+        margin: 10px 0;
+    }
+    
+    .product-card .price {
+        margin-top: 5px;
+        font-size: 1.1rem;
+        color: #34a853;
+    }
+    
+    .product-card .price span {
+        text-decoration: line-through;
+        color: #888;
+    }
+    
+    .discount-tag {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: #e63946;
+        color: #fff;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
+    
+    .stars {
+        margin-bottom: 5px;
+    }
+    
+    .stars i {
+        color: #ffbf00;
+    }
+    
+    .results {
+        font-size: 1.2rem;
+        color: #888;
+    }
+
+    .height-width-checkbox {
+        zoom: 1.5; /* Works for most browsers, but less compatible than transform */
+        margin-right: 10px;
+    }
+    
+    /* Responsive styles for mobile and tablets */
+    @media (max-width: 1024px) {
+        .product-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .filter-btn-handle {
+        display: none;
+        background-color: black;
+        color: white;
+        width: 90px;
+        font-size: 16px;
+        padding: 5px 0px;
+        border: none;
+        margin: 0px auto;
+        cursor: pointer;
+    }
+
+    .filter-you {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .you {
+        margin-bottom: 20px;
+        border: none;
+        background-color: white;
+        padding: 3px 7px;
+        cursor: pointer;
+        display: none;
+    }
+    
+    @media (max-width: 768px) {
+        .filter-btn-handle {
+            display: block;
+        }
+
+        .container {
+            flex-direction: column;
+        }
+    
+        .sidebar {
+            width: 360px;
+            margin-bottom: 20px;
+            position: fixed;
+            z-index: 10;
+            top: 80px;
+            display: none;
+        }
+
+        .hide-show {
+            display: block;
+        }
+    
+        .shop {
+            width: 100%;
+        }
+    
+        .product-grid {
+            grid-template-columns: repeat(2, 1fr);
+            margin: 0px 10px;
+        }
+
+        .you {
+            display: block;
+        }
+    }
+    
+</style>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="./index.html">GreenNest</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="./shop.html">Shop</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./shop.html?easy care">Easy Care</a></li>
+                        <li><a href="./shop.html?Fresh Air">Fresh Air</a></li>
+                        <li><a href="./shop.html?Indoor Plant Beauty">Indoor Plant Beauty</a></li>
+                        <li><a href="./shop.html?Water Efficient">Water Efficient</a></li>
+                        <li><a href="./shop.html?Beginner-Friendly">Beginner-Friendly</a></li>
+                        <li><a href="./shop.html?High Care">High Care</a></li>
+                        <li><a href="./shop.html?Sun Lovers">Sun Lovers</a></li>
+                        <li><a href="./shop.html?Safe for Pets">Safe for Pets</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="./wishlist.html">Wishlist</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a id="openDialog"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a id="openLoginDialog"><i class="fas fa-user"></i></a>
+                <a href="./cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <div id="searchDialog" class="dialog-overlay">
+            <form id="search-form" class="dialog-box">
+                <button class="close-dialog-btn" id="closeDialog">&times;</button>
+                <h2 class="dialog-title">Search</h2>
+                <input type="text" id="search-input" class="search-input" placeholder="Type something..." />
+                <button class="search-submit-btn">Search</button>
+            </form>
+        </div>
+
+        <div id="loginDialog" class="dialog-overlay">
+            <div class="dialog-box">
+                <button class="close-dialog-btn" id="closeLoginDialog">&times;</button>
+                <!-- Tab Buttons for Switching Between Login and Signup -->
+                <div class="tab-buttons">
+                    <button id="loginTab" class="tab-btn active">Login</button>
+                    <button id="signupTab" class="tab-btn">Signup</button>
+                </div>
+            
+                <!-- Login Form -->
+                <div id="loginForm" class="form-content active">
+                    <h2 class="dialog-title">Login</h2>
+                    <form>
+                        <input required type="email" id="loginEmail" class="input-field" placeholder="Email" required>
+                        <input required type="password" id="loginPassword" class="input-field" placeholder="Password" required>
+                        <button class="submit-btn">Login</button>
+                    </form>
+                </div>
+            
+                <!-- Signup Form -->
+                <div id="signupForm" class="form-content">
+                    <h2 class="dialog-title">Signup</h2>
+                    <form>
+                        <input required type="text" id="signupUsername" class="input-field" placeholder="Username" required>
+                        <input required type="email" id="signupEmail" class="input-field" placeholder="Email" required>
+                        <input required type="password" id="signupPassword" class="input-field" placeholder="Password" required>
+                        <button class="submit-btn">Signup</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+
+    <div class="container">
+        <button id="show-hide" class="filter-btn-handle">FILTER</button>
+        <aside id="filter-slider" class="sidebar">
+            <div class="filter-you">
+                <h2>Filter by Price</h2>
+                <button id="slider-button" class="you"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="price-filter">
+                <p>
+                    <label for="amount">Price range:</label>
+                    <input type="text" id="amount" readonly="" style="border:0; color:#f6931f; font-weight:bold;">
+                </p>
+                
+                <div id="slider-range"></div>
+                <!-- <input type="range" min="0" max="500" value="0">
+                <span class="price0-500" >₹0 - ₹500</span> -->
+                <button id="apply-filters" class="filter-btn">Filter</button>
+            </div>
+            <h3 class="select-by-cat">Select by Category</h3>
+
+            <ul>
+                <li><input class="height-width-checkbox category-filter" type="checkbox" value="Easy Care"          ><span class="text-checkbox">Easy Care</span> </li>
+                <li><input class="height-width-checkbox category-filter" type="checkbox" value="Fresh Air"          ><span class="text-checkbox"> Fresh Air</span>  </li>
+                <li><input class="height-width-checkbox category-filter" type="checkbox" value="Indoor Plant Beauty"><span class="text-checkbox"> Indoor Plant Beauty</span></li>
+                <li><input class="height-width-checkbox category-filter" type="checkbox" value="Water Efficient"    ><span class="text-checkbox"> Water Efficient</span> </li>
+                <li><input class="height-width-checkbox category-filter" type="checkbox" value="Beginner-Friendly"  ><span class="text-checkbox"> Beginner-Friendly</span>  </li>
+                <li><input class="height-width-checkbox category-filter" type="checkbox" value="High Care"          ><span class="text-checkbox"> High Care</span></li>
+                <li><input class="height-width-checkbox category-filter" type="checkbox" value="Sun Lovers"         ><span class="text-checkbox"> Sun Lovers</span></li>
+                <li><input class="height-width-checkbox category-filter" type="checkbox" value="Safe for Pets"      ><span class="text-checkbox"> Safe for Pets</span></li>
+            </ul>
+            <h3>Select by Size</h3>
+            <ul>
+                <li><input class="height-width-checkbox" type="checkbox"> S (6)</li>
+                <li><input class="height-width-checkbox" type="checkbox"> M (8)</li>
+                <li><input class="height-width-checkbox" type="checkbox"> L (10)</li>
+            </ul>
+        </aside>
+
+        <section class="shop">
+            <div class="shop-header">
+                <div class="view-options">
+                    <i class="fas fa-th"></i>
+                    <i class="fas fa-list"></i>
+                </div>
+                <div class="results ">Showing<span id="result-quantity"> 21</span> results</div>
+            </div>
+
+            <div id="product-list" class="product-grid">
+                <!-- Repeat product cards as necessary -->
+                <div class="product-card">
+                    <div class="discount-tag">-7%</div>
+                    <img src="https://www.ugaoo.com/cdn/shop/files/7_29b47203-99b4-43c5-b38e-fed4df2ea554.jpg?v=1710232846" alt="Plant 1">
+                    <h3>Commdo Augue Nisi</h3>
+                    <div class="stars">
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="price"><span>₹74.00</span> ₹69.00</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-tag">-8%</div>
+                    <img src="https://www.ugaoo.com/cdn/shop/files/7_29b47203-99b4-43c5-b38e-fed4df2ea554.jpg?v=1710232846" alt="Plant 2">
+                    <h3>Adipiscing Cursus</h3>
+                    <div class="stars">
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="price"><span>₹74.00</span> ₹69.00</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-tag">-8%</div>
+                    <img src="https://www.ugaoo.com/cdn/shop/files/7_29b47203-99b4-43c5-b38e-fed4df2ea554.jpg?v=1710232846" alt="Plant 2">
+                    <h3>Adipiscing Cursus</h3>
+                    <div class="stars">
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="price"><span>₹74.00</span> ₹69.00</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-tag">-8%</div>
+                    <img src="https://www.ugaoo.com/cdn/shop/files/7_29b47203-99b4-43c5-b38e-fed4df2ea554.jpg?v=1710232846" alt="Plant 2">
+                    <h3>Adipiscing Cursus</h3>
+                    <div class="stars">
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="price"><span>₹74.00</span> ₹69.00</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-tag">-8%</div>
+                    <img src="https://www.ugaoo.com/cdn/shop/files/7_29b47203-99b4-43c5-b38e-fed4df2ea554.jpg?v=1710232846" alt="Plant 2">
+                    <h3>Adipiscing Cursus</h3>
+                    <div class="stars">
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="price"><span>₹74.00</span> ₹69.00</p>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-tag">-8%</div>
+                    <img src="https://www.ugaoo.com/cdn/shop/files/7_29b47203-99b4-43c5-b38e-fed4df2ea554.jpg?v=1710232846" alt="Plant 2">
+                    <h3>Adipiscing Cursus</h3>
+                    <div class="stars">
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="price"><span>₹74.00</span> ₹69.00</p>
+                </div>
+
+                
+
+                <div class="product-card">
+                    <div class="discount-tag">-9%</div>
+                    <img src="https://www.ugaoo.com/cdn/shop/files/7_29b47203-99b4-43c5-b38e-fed4df2ea554.jpg?v=1710232846" alt="Plant 3">
+                    <h3>Adipiscing Elit</h3>
+                    <div class="stars">
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="price"><span>₹74.00</span> ₹69.00</p>
+                </div>
+                <!-- Add more product cards as needed -->
+            </div>
+        </section>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About GreenNest</h3>
+                <p>At GreenNest, we are passionate about bringing nature closer to you. Explore our wide range of indoor
+                    plants and accessories to create your own green haven.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +91 12345 67890</p>
+                <p><i class="fas fa-envelope"></i> support@greennest.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GreenNest. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/shop.js"></script>
+    <script src="js/globalJavascript.js"></script>
+    <!-- <script>
+        $( function() {
+          $( "#slider-range" ).slider({
+            range: true,
+            min: 0,
+            max: 1500,
+            values: [ 75, 400 ],
+            slide: function( event, ui ) {
+              $( "#amount" ).val( "" + ui.values[ 0 ] + " - " + ui.values[ 1 ] );
+              
+                console.log("Min value: " + ui.values[ 0 ]);
+                console.log("Max value: " + ui.values[ 1 ]);
+            }
+          });
+          $( "#amount" ).val( "" + $( "#slider-range" ).slider( "values", 0 ) +
+            " - " + $( "#slider-range" ).slider( "values", 1 ) );
+            console.log("Min value: " + $( "#slider-range" ).slider( "values", 0 ));
+            console.log("Max value: " + $( "#slider-range" ).slider( "values", 1 ));
+
+
+        } );
+    </script> -->
+</body>
+
+</html>

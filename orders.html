@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Wishlist</title>
+</head>
+<style>
+
+    .lora {
+        font-family: "Lora", serif;
+    }
+
+    .montserrat {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+    }
+
+
+    /* styles.css */
+    
+    .wishlist-container {
+        max-width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .wishlist-title {
+        font-size: 24px;
+        margin-bottom: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .edit-icon {
+        font-size: 16px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    
+    .wishlist-header{
+        display: grid;
+        grid-template-columns: 6fr 4fr 4fr 2fr;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .wishlist-item {
+        display: grid;
+        grid-template-columns: 6fr 1fr 2fr 2fr;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .wishlist-header {
+        font-weight: bold;
+    }
+
+    .text-align {
+        text-align: center;
+    }
+    
+    .product-details {
+        display: flex;
+        align-items: center;
+    }
+    
+    .product-image {
+        width: 100px;
+        height: auto;
+        margin: 0px 20px;
+    }
+    
+    .product-name {
+        font-size: 16px;
+        color: black;
+    }
+
+    .pro-name-tab {
+        display: none;
+    }
+
+    .price-delete {
+        display: flex;
+        align-items: center;
+    }
+
+    a, a:visited, a:hover, a:active {
+        text-decoration: none !important;
+    }
+    
+    .remove-product {
+        font-size: 18px;
+        color: #ff0000;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+    
+    .unit-price .old-price {
+        text-decoration: line-through;
+        color: #888;
+    }
+    
+    .unit-price .new-price {
+        color: #ff0000;
+        margin-left: 5px;
+    }
+    
+    .add-to-cart {
+        background-color: #252525;
+        color: #fff;
+        padding: 8px 16px;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .add-to-cart:hover {
+        background-color: #000000;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .wishlist-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .price-delete {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        
+        .wishlist-header, .wishlist-item {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+    
+        .wishlist-header span, .wishlist-item > div {
+            margin-bottom: 10px;
+        }
+    
+        .wishlist-header {
+            display: none;
+        }
+    
+        .wishlist-item {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    
+        .product-details {
+            justify-content: center;
+        }
+
+        .pro-name {
+            display: none;
+        }
+
+        .pro-name-tab {
+            display: block;
+        }
+    
+        .unit-price, .actions {
+            margin-top: 10px;
+        }
+
+        .mar-stock {
+            margin-top: 10px;
+        }
+    
+        .add-to-cart {
+            width: 100%;
+            text-align: center;
+        }
+
+        .wishlist-container {
+            max-width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+        }
+
+        .product-image {
+            width: 200px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .wishlist-title {
+            font-size: 20px;
+        }
+    
+        .product-name {
+            font-size: 14px;
+        }
+
+        .wishlist-container {
+            max-width: 100%;
+        }
+
+        .product-image {
+            width: 250px;
+        }
+    }
+    
+    .icon-color {
+        color: black !important;
+        font-size: 16px;
+    }
+    
+    .wishlist-empty {
+        text-align: center;
+        font-size: x-large;
+    }
+
+</style>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="./index.html">GreenNest</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="./shop.html">Shop</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./shop.html?easy care">Easy Care</a></li>
+                        <li><a href="./shop.html?Fresh Air">Fresh Air</a></li>
+                        <li><a href="./shop.html?Indoor Plant Beauty">Indoor Plant Beauty</a></li>
+                        <li><a href="./shop.html?Water Efficient">Water Efficient</a></li>
+                        <li><a href="./shop.html?Beginner-Friendly">Beginner-Friendly</a></li>
+                        <li><a href="./shop.html?High Care">High Care</a></li>
+                        <li><a href="./shop.html?Sun Lovers">Sun Lovers</a></li>
+                        <li><a href="./shop.html?Safe for Pets">Safe for Pets</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="./wishlist.html">Wishlist</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a id="openDialog"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a id="openLoginDialog"><i class="fas fa-user"></i></a>
+                <a href="./cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <div id="searchDialog" class="dialog-overlay">
+            <form id="search-form" class="dialog-box">
+                <button class="close-dialog-btn" id="closeDialog">&times;</button>
+                <h2 class="dialog-title">Search</h2>
+                <input type="text" id="search-input" class="search-input" placeholder="Type something..." />
+                <button class="search-submit-btn">Search</button>
+            </form>
+        </div>
+
+        <div id="loginDialog" class="dialog-overlay">
+            <div class="dialog-box">
+                <button class="close-dialog-btn" id="closeLoginDialog">&times;</button>
+                <!-- Tab Buttons for Switching Between Login and Signup -->
+                <div class="tab-buttons">
+                    <button id="loginTab" class="tab-btn active">Login</button>
+                    <button id="signupTab" class="tab-btn">Signup</button>
+                </div>
+            
+                <!-- Login Form -->
+                <div id="loginForm" class="form-content active">
+                    <h2 class="dialog-title">Login</h2>
+                    <form>
+                        <input required type="email" id="loginEmail" class="input-field" placeholder="Email" required>
+                        <input required type="password" id="loginPassword" class="input-field" placeholder="Password" required>
+                        <button class="submit-btn">Login</button>
+                    </form>
+                </div>
+            
+                <!-- Signup Form -->
+                <div id="signupForm" class="form-content">
+                    <h2 class="dialog-title">Signup</h2>
+                    <form>
+                        <input required type="text" id="signupUsername" class="input-field" placeholder="Username" required>
+                        <input required type="email" id="signupEmail" class="input-field" placeholder="Email" required>
+                        <input required type="password" id="signupPassword" class="input-field" placeholder="Password" required>
+                        <button class="submit-btn">Signup</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- <h2>Your Wishlist</h2> -->
+    <!-- <div id="wishlist-items"></div> -->
+
+    <h1 class="wishlist-title montserrat">My Orders</h1>
+    <div class="wishlist-header wishlist-container montserrat pro-name">
+        <span class="text-align pro-name">Product Name</span>
+        <span class="pro-name"></span>
+        <span class="pro-name">Price</span>
+        <span class="pro-name">Quantity</span>
+    </div>
+
+    <div id="order-items-javascript" class="wishlist-container">
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About GreenNest</h3>
+                <p>At GreenNest, we are passionate about bringing nature closer to you. Explore our wide range of indoor
+                    plants and accessories to create your own green haven.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +91 12345 67890</p>
+                <p><i class="fas fa-envelope"></i> support@greennest.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GreenNest. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/orders.js"></script>
+    <script src="js/globalJavascript.js"></script>
+</body>
+</html>

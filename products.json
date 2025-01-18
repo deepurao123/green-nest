@@ -1,0 +1,146 @@
+[
+  {
+    "id": 1,
+    "name": "Peace Lily plant",
+    "price": 200,
+    "category": "Easy Care, Fresh Air, Indoor Plant Beauty, plants",
+    "description": "A beautiful plant with white blooms that thrive in low light conditions.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/products/GroPot.jpg?v=1704867612&width=750",
+      "https://www.ugaoo.com/cdn/shop/products/DSC_8818_afd3420f-0b8c-410a-95f8-38394ed69ec2.jpg?v=1704867612",
+      "https://www.ugaoo.com/cdn/shop/products/DSC_9124_cfe94c59-66ce-45c0-93b1-e1049ad834a1.jpg?v=1704867612"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Money Plant Golden plant",
+    "price": 200,
+    "category": "Easy Care, Water Efficient, Fresh Air, Indoor Plant Beauty, Beginner-Friendly, plants",
+    "description": "A low-maintenance plant known for its air-purifying qualities.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/products/GroPot_1cd9e614-4bc8-4c54-94a9-d8d30df5fc27.jpg?v=1688563979&width=750",
+      "https://www.ugaoo.com/cdn/shop/products/DSC_8795.jpg?v=1688563979",
+      "https://www.ugaoo.com/cdn/shop/products/DSC_9086.jpg?v=1688563979"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Fiddle Leaf Fig plant",
+    "price": 600,
+    "category": "High Care, Sun Lovers, Indoor Plant Beauty, plants",
+    "description": "A tall, elegant plant with large, glossy leaves",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/files/1_cc65c975-7a6f-43d6-bb81-b56520e29bc7.jpg?v=1717308876&width=750",
+      "https://www.ugaoo.com/cdn/shop/products/12_e14ae969-d336-45ec-85f6-80c1ccfc5946.jpg?v=1681628793",
+      "https://www.ugaoo.com/cdn/shop/products/Krish12Planter-Ivory_bad8bf81-860b-4172-b047-825eb8c6f506.jpg?v=1706609865"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Aloe Vera plant",
+    "price": 200,
+    "category": "Easy Care, Water Efficient, Fresh Air, Indoor Plant Beauty, Beginner-Friendly, plants",
+    "description": "A succulent plant known for its medicinal properties.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/files/DSC_9872.jpg?v=1706611382&width=750",
+      "https://www.ugaoo.com/cdn/shop/files/DSC_0378.jpg?v=1710161462",
+      "https://www.ugaoo.com/cdn/shop/files/DSC_9718.jpg?v=1710161462"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Monstera Deliciosa plant",
+    "price": 300,
+    "category": "Sun Lovers, Indoor Plant Beauty, Beginner-Friendly, plants",
+    "description": "A popular plant with large, split leaves.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/files/1_44713654-fadc-43c3-868b-966b8c624bbf.jpg?v=1706608270",
+      "https://www.ugaoo.com/cdn/shop/files/7_29b47203-99b4-43c5-b38e-fed4df2ea554.jpg?v=1710232846",
+      "https://www.ugaoo.com/cdn/shop/files/XL-288.jpg?v=1708075048"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Spider Plant",
+    "price": 250,
+    "category": "Easy Care, Water Efficient, Safe for Pets, Indoor Plant Beauty, Beginner-Friendly, plants",
+    "description": "An easy-to-care-for plant with long, arching leaves.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/products/GroPot_b025ad6f-e776-4187-8c3e-4ce50dd7af2a.jpg?v=1680513369&width=750",
+      "https://www.ugaoo.com/cdn/shop/products/KrishPlanter-Ivory_fc6ea693-e71a-4ae3-94c0-627cbc64cf30.jpg?v=1680513145",
+      "https://www.ugaoo.com/cdn/shop/files/DSC_8130.jpg?v=1707734450"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "ZZ Plant",
+    "price": 200,
+    "category": "Easy Care, Water Efficient, Fresh Air, Indoor Plant Beauty, Beginner-Friendly, plants",
+    "description": "A hardy plant that requires very little maintenance.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/files/GroPot_bbfd5494-9be8-4dd1-9cdf-d8a8d3cf87c6.jpg?v=1706609248&width=750",
+      "https://www.ugaoo.com/cdn/shop/files/GrailCeramicPot-White_8a7ec0ea-093f-4683-b423-20f909ad59e0.jpg?v=1710224408",
+      "https://www.ugaoo.com/cdn/shop/files/Krish12Planter-Ivory_1320850c-0f88-4c49-bd83-b726cb7426d3.jpg?v=1710224408"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Pothos plant",
+    "price": 300,
+    "category": "Easy Care, Water Efficient, Fresh Air, Indoor Plant Beauty, Beginner-Friendly, plants",
+    "description": "A versatile plant that can be grown in water or soil.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/products/GroPot_f75ba299-1ba4-4c23-ab43-deb07d3152cf.jpg?v=1680394255&width=750",
+      "https://www.ugaoo.com/cdn/shop/products/DSC_0070.jpg?v=1680394255",
+      "https://www.ugaoo.com/cdn/shop/files/2_82b75628-a6c8-42f8-b70f-6f19036784c7.jpg?v=1713249260"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Rubber Plant",
+    "price": 300,
+    "category": "High Care, Sun Lovers, Fresh Air, Indoor Plant Beauty, plants",
+    "description": "A striking plant with broad, glossy leaves that purify the air.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/products/GroPot_997d008c-0bd8-4ec4-8540-498d4c9338f3.jpg?v=1706609471&width=750",
+      "https://www.ugaoo.com/cdn/shop/products/GrailCeramicPot-Peach_26a977f0-1c01-48f7-b089-668684e0e182.jpg?v=1706609471",
+      "https://www.ugaoo.com/cdn/shop/products/Krish12Planter-Ivory_7ec45410-39da-439f-b774-4cde0b133276.jpg?v=1706609471"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Ceramic Planters plant",
+    "price": 250,
+    "category": "Easy Care, Water Efficient, Fresh Air, Indoor Plant Beauty, Beginner-Friendly, plants",
+    "description": "A resilient plant that adapts to low light and is easy to care for.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/files/1_29cb8efd-53dc-48b3-af13-46fcc0036cff.jpg?v=1719840021&width=2200",
+      "https://www.ugaoo.com/cdn/shop/files/1_7d154c3a-f18c-4318-b5b2-c2fa1bda865f.jpg?v=1716970803&width=2200",
+      "https://www.ugaoo.com/cdn/shop/files/1_a3f354b1-1d71-4821-b040-99f8ac0d1184.jpg?v=1720693733&width=2200"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Bamboo Palm Plant",
+    "price": 200,
+    "category": "Easy Care, Safe for Pets, Indoor Plant Beauty, Beginner-Friendly, plants",
+    "description": "A lush plant with feathery, arching fronds that thrive in humid environments.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/products/GroPot_cff1f8cf-e233-4cbf-9cfa-8ef815e851dd.jpg?v=1696240355&width=750",
+      "https://www.ugaoo.com/cdn/shop/files/Krish12Planter-Ivory_52a519ed-d61b-4ab9-883e-9797c23fac5b.jpg?v=1710162438",
+      "https://www.ugaoo.com/cdn/shop/files/DSC_8294_1.jpg?v=1710162438"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Jade Plant",
+    "price": 200,
+    "category": "Easy Care, Water Efficient, Fresh Air, Indoor Plant Beauty, Beginner-Friendly, plants",
+    "description": "A symbol of good luck, the Jade Plant is a sturdy succulent with thick, shiny leaves.",
+    "imageUrl": [
+      "https://www.ugaoo.com/cdn/shop/products/GroPot_87e3e981-500e-4df2-bff3-d618431f96c9.jpg?v=1680418283&width=750",
+      "https://www.ugaoo.com/cdn/shop/products/Krish12Planter-Ivory_0ff6c495-a57a-44bc-b151-5674cc12dbc4.jpg?v=1680288234",
+      "https://www.ugaoo.com/cdn/shop/products/AtlantisPlanter-PastelYellow_a1177973-ba87-4e6b-8a6d-04051f492464.jpg?v=1680288234"
+    ]
+  }
+]

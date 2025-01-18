@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Indoor Plant Store</title>
+</head>
+<style>
+    /* Add some basic styling to the page */
+    .login-container {
+        width: 450px;
+        margin: 0px auto;
+        border: 1px solid #2F4F4F;
+        margin-top: 40px;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .login-text {
+        font-size: 24px;
+        margin-top: 90px;
+    }
+
+    .w-auto-input-a {
+        width: 80%;
+        margin-top: 70px;
+        padding: 14px 10px;
+        font-size: 18px;
+        border: 1px solid #2F4F4F;
+        border-radius: 5px;
+    }
+
+    .w-auto-input-b {
+        width: 80%;
+        margin-top: 30px;
+        padding: 14px 10px;
+        font-size: 18px;
+        border: 1px solid #2F4F4F;
+        border-radius: 5px;
+    }
+
+    .login-button {
+        width: 85%;
+        border: 1px solid black;
+        padding: 12px 0px;
+        font-size: 18px;
+        margin: 80px auto 80px auto;
+        background-color: #2F4F4F;
+        color: white;
+        border-radius: 5px;
+    }
+
+    .text-color-blue {
+        color: rgb(90, 0, 207);
+        text-decoration: none;
+    }
+
+    .botom-text-a,
+    .botom-text-b {
+        font-size: 18px;
+        margin-bottom: 16px;
+    }
+
+    .botom-text-b {
+        margin-bottom: 50px;
+    }
+
+    @media (max-width: 480px) {
+        .login-container {
+            width: 335px;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="./index.html">GreenNest</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="./shop.html">Shop</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">All Plants</a></li>
+                        <li><a href="#">Air Purifying</a></li>
+                        <li><a href="#">Low Maintenance</a></li>
+                        <li><a href="#">Bonsai</a></li>
+                        <li><a href="#">Flowering Plants</a></li>
+                        <li><a href="#">Indoor Planters</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="./wishlist.html">Wishlist</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a id="openDialog"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="./login.html"><i class="fas fa-user"></i></a>
+                <a href="./cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+        <div id="searchDialog" class="dialog-overlay">
+            <form id="search-form" class="dialog-box">
+                <button class="close-dialog-btn" id="closeDialog">&times;</button>
+                <h2 class="dialog-title">Search</h2>
+                <input type="text" id="search-input" class="search-input" placeholder="Type something..." />
+                <button class="search-submit-btn">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <main >
+        <form class="login-container">
+            <p class="login-text">Login</p>
+            <input class="w-auto-input-a" type="email" placeholder="E-mail" required>
+            <input class="w-auto-input-b" type="password" placeholder=Password" required>
+            <button type="submit" class="login-button">Login</button>
+            <div class="botom-text-a">Forgot <span class="text-color-blue">Password?</span></div>
+            <div class="botom-text-b">Don't have an account?<a href="signup.html" class="text-color-blue"> Sign up</span></a>
+        </form>
+
+    </main>
+        
+
+    <footer>
+        <div class="footer">
+            <div class="footer-section">
+                <h3>OPENING TIME</h3>
+                <p>Mon - Fri: 8AM - 10PM</p>
+                <p>Sat: 9AM-8PM</p>
+                <p>Suns: 14hPM-18hPM</p>
+                <p class="footer-highlight">We Work All The Holidays</p>
+            </div>
+            <div class="footer-section">
+                <h3>INFORMATION</h3>
+                <p>About Us</p>
+                <p>Checkout</p>
+                <p>Contact</p>
+                <p>Frequently Questions</p>
+                <p>Wishlist</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>MY ACCOUNT</h3>
+                <p>My Account</p>
+                <p>Contact</p>
+                <p>Shopping cart</p>
+                <p>Checkout</p>
+                <p>Shop</p>
+                <p>Order History</p>
+            </div>
+            <div class="footer-section">
+                <h1>ECOLEAF</h1>
+                <div class="footer-icons">
+                    <p>Payment</p>
+                    <p>Affiliates</p>
+                    <p>Contact</p>
+                    <p>Internet</p>
+                </div>
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google-plus"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="app-buttons">
+                    <img class="app-store-icon" src="https://cdn3d.iconscout.com/3d/free/thumb/free-app-store-3d-icon-download-in-png-blend-fbx-gltf-file-formats--apple-logo-application-macos-pack-user-interface-icons-8219392.png" alt="">
+                    <img class="app-store-icon" src="./images/playStore.png" alt="">
+                </div>
+            </div>
+        </div>        
+    </footer>
+
+    
+    <script src="js/globalJavascript.js"></script>
+
+</body>
+</html>

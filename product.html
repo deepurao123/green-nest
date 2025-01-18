@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Product Detail</title>
+</head>
+<style>
+    .lora {
+        font-family: "Lora", serif;
+    }
+
+    .montserrat {
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+    }
+
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1400px;
+        margin: 40px auto 130px auto;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-image-section {
+        flex: 1.2;
+        padding: 20px;
+    }
+    
+    .product-image-section img {
+        width: 100%;
+    }
+    
+    .product-details-section {
+        flex: 1;
+        padding: 20px;
+    }
+    
+    .product-title {
+        font-size: 15px;
+        margin-bottom: 1px;
+        color: #555;
+    }
+    
+    .product-subtitle {
+        font-size: 24px;
+        color: #2a2a2a;
+        
+        margin-bottom: 20px;
+        margin-top: 15px;
+    }
+    
+    .product-price {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    
+    .old-price {
+        text-decoration: line-through;
+        color: #888;
+        margin-right: 10px;
+    }
+    
+    .new-price {
+        font-size:x-large
+    }
+    
+    .payment-options {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 20px;
+    }
+    
+    .reviews {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 2px;
+    }
+    
+    .stars {
+        color: #26b14e;
+        font-size:x-large;
+        margin-right: 10px;
+        margin-top: 2px;
+    }
+    
+    .review-count {
+        color: #555;
+        border: 1px solid black;
+    }
+    
+    .product-options {
+        margin-bottom: 20px;
+    }
+    
+    .color-option, .size-option {
+        margin-bottom: 30px;
+    }
+    
+    .color-selection, .size-selection {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+    }
+    
+    .color-circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+        cursor: pointer;
+        border: 1px solid #ddd;
+    }
+
+    .size-text {
+        margin-top: 12px;
+        margin-bottom: 5px;
+    }
+    
+    .green {
+        background-color: green;
+    }
+    
+    .white {
+        background-color: #f0f0f0;
+    }
+
+    .size-select {
+        font-weight: normal;
+        font-size: large;
+    }
+
+    .size-select-m {
+        font-size: large;
+    }
+    
+    .size-select-m {
+        margin-top: 5px;
+        padding: 10px 20px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .size-select-m:hover {
+        border: 1px solid green;
+        color: green;
+    }
+
+    .size-selection-button-active {
+        border: 1px solid #008000;
+        color: green;
+    }
+    
+    .discount-info {
+        font-size: 14px;
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    
+    .add-to-cart-btn {
+        display: block;
+        width: 80%;
+        padding: 10px;
+        background-color: #31b64b;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .product-description {
+        font-size: 16px;
+        color: #333;
+    }
+
+    .desc-1 {
+        margin-bottom: 10px;
+        font-size: x-large;
+    }
+    
+    .desc-2 {
+        margin-bottom: 10px;
+        font-size: large;
+    }
+    
+    @media (max-width: 768px) {
+        .product-container {
+            flex-direction: column;
+        }
+    
+        .product-details-section {
+            padding: 10px;
+        }
+    
+        .product-image-section {
+            padding: 10px;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .product-title {
+            font-size: 24px;
+        }
+    
+        .product-price {
+            font-size: 20px;
+        }
+    
+        .add-to-cart-btn {
+            font-size: 14px;
+        }
+    
+        .product-description {
+            font-size: 14px;
+        }
+    }
+
+
+    .payment-options {
+        margin-bottom: 30px;
+        padding: 0px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #fafafa;
+        text-align: center;
+    }
+    
+    .payment-methods {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        margin: 12px 0px 30px 0px;
+    }
+
+    .payment-icons {
+        height: 40px;
+    }
+
+    .payment-text {
+        font-size: 18px;
+        margin-top: 20px;
+    }
+
+    .like-handle {
+        display: flex;
+        justify-content: space-between;
+    }
+
+
+
+
+
+
+    /* here creaousoul start */
+
+/* General Carousel Container */
+.carousel-container {
+    margin-top: 50px;
+    width: 100%; /* Enable horizontal scrolling */
+    padding: 20px 0;
+    background-color: #ffffff;
+}
+  
+  /* Horizontal Scrolling Products Section */
+  .carousel {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    max-width: 1290px;
+    margin: 0px auto;
+  }
+  
+  /* Individual Product Card */
+  .carousel-item {
+    min-width: 200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    flex: 0 0 auto;/* Prevent shrinking */
+  }
+  
+  .img-size {
+    max-width: 260px;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .carousel-item h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .carousel-item p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  /* Hide scrollbar for WebKit browsers */
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for other browsers */
+  .carousel {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .related-pro {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .carousel-item {
+      min-width: 160px;
+    }
+
+    .img-size {
+        max-width: 190px;
+      }
+  }
+  
+  @media (max-width: 480px) {
+    .carousel-item {
+      min-width: 140px;
+    }
+
+    .img-size {
+        max-width: 140px;
+      }
+  }
+
+
+
+
+  /* end and accordion start */
+
+  .accordion-container {
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    padding: 14px 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #e7e7e7;
+}
+
+.accordion-content {
+    padding: 15px;
+    display: none;
+    background-color: #fafafa;
+}
+
+.accordion-content p {
+    margin: 0;
+}
+
+
+/* accordion end */
+
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.feature-item {
+    text-align: center;
+    flex: 1;
+}
+
+.feature-icon {
+    height: 40px;
+    margin-bottom: 2px;
+}
+
+.feature-text {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+    margin: 0px;
+}
+
+</style>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="./index.html">GreenNest</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="./shop.html">Shop</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./shop.html?easy care">Easy Care</a></li>
+                        <li><a href="./shop.html?Fresh Air">Fresh Air</a></li>
+                        <li><a href="./shop.html?Indoor Plant Beauty">Indoor Plant Beauty</a></li>
+                        <li><a href="./shop.html?Water Efficient">Water Efficient</a></li>
+                        <li><a href="./shop.html?Beginner-Friendly">Beginner-Friendly</a></li>
+                        <li><a href="./shop.html?High Care">High Care</a></li>
+                        <li><a href="./shop.html?Sun Lovers">Sun Lovers</a></li>
+                        <li><a href="./shop.html?Safe for Pets">Safe for Pets</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="./wishlist.html">Wishlist</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a id="openDialog"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a id="openLoginDialog"><i class="fas fa-user"></i></a>
+                <a href="./cart.html"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+
+        <div id="searchDialog" class="dialog-overlay">
+            <form id="search-form" class="dialog-box">
+                <button class="close-dialog-btn" id="closeDialog">&times;</button>
+                <h2 class="dialog-title">Search</h2>
+                <input type="text" id="search-input" class="search-input" placeholder="Type something..." />
+                <button class="search-submit-btn">Search</button>
+            </form>
+        </div>
+
+        <div id="loginDialog" class="dialog-overlay">
+            <div class="dialog-box">
+                <button class="close-dialog-btn" id="closeLoginDialog">&times;</button>
+                <!-- Tab Buttons for Switching Between Login and Signup -->
+                <div class="tab-buttons">
+                    <button id="loginTab" class="tab-btn active">Login</button>
+                    <button id="signupTab" class="tab-btn">Signup</button>
+                </div>
+            
+                <!-- Login Form -->
+                <div id="loginForm" class="form-content active">
+                    <h2 class="dialog-title">Login</h2>
+                    <form>
+                        <input required type="email" id="loginEmail" class="input-field" placeholder="Email" required>
+                        <input required type="password" id="loginPassword" class="input-field" placeholder="Password" required>
+                        <button class="submit-btn">Login</button>
+                    </form>
+                </div>
+            
+                <!-- Signup Form -->
+                <div id="signupForm" class="form-content">
+                    <h2 class="dialog-title">Signup</h2>
+                    <form>
+                        <input required type="text" id="signupUsername" class="input-field" placeholder="Username" required>
+                        <input required type="email" id="signupEmail" class="input-field" placeholder="Email" required>
+                        <input required type="password" id="signupPassword" class="input-field" placeholder="Password" required>
+                        <button class="submit-btn">Signup</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="product-detail">
+        
+    </div>
+
+    <div class="carousel-container">
+        <div class="related-pro">Related Products</div>
+        <div id="related-product" class="carousel">
+        </div>
+    </div>
+    <!-- Toast Container -->
+    <div id="toast-container">
+        <div id="toast" class="toast">
+            <span id="toast-message">This is a success message!</span>
+            <button onclick="closeToast()" id="toast-close">&times;</button>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About GreenNest</h3>
+                <p>At GreenNest, we are passionate about bringing nature closer to you. Explore our wide range of indoor
+                    plants and accessories to create your own green haven.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Return Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-phone"></i> +91 12345 67890</p>
+                <p><i class="fas fa-envelope"></i> support@greennest.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GreenNest. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/product.js"></script>
+    <script src="js/globalJavascript.js"></script>
+</body>
+</html>
